@@ -392,18 +392,28 @@ const CONTACT_FORM_RULES = {
     }
 };
 
-// ===================================
-// MAIN APPLICATION LOGIC
-// ===================================
+// ==================================
+// INITIALIZATION
+// Init semua features pas DOM ready
+// ==================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
-    initScrollAnimations();
-    initDummyData();
-    renderMessages();
-    setupContactForm();
-    initTestimonials(); // Initialize testimonial slider
-    initPartnersSlider(); // Initialize partners slider
+    // Initialize Core Features
+    initTheme();              // Dark/Light mode toggle - ganti tema
+    initScrollAnimations();   // Scroll animations - animasi pas scroll
+    initActiveNavLinks();     // Active navbar link detection - auto-update menu aktif
+    initBackToTop();          // Back to top button - tombol kembali ke atas
+    
+    // Initialize Data & UI
+    initDummyData();          // Generate dummy messages - buat data dummy
+    renderMessages();         // Render messages to DOM - tampilkan pesan
+    
+    // Initialize Form
+    setupContactForm();       // Form validation & message persistence - setup form
+    
+    // Initialize Sliders
+    initTestimonials();       // Testimonial carousel - slider testimoni
+    initPartnersSlider();     // Partners logo slider - slider partner
 });
 
 // --- Theme Management ---
@@ -461,6 +471,77 @@ function initScrollAnimations() {
 
     document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 }
+
+// ==================================
+// ACTIVE NAVBAR LINK DETECTION
+// Auto-update navbar active link berdasarkan section yang terlihat
+// ==================================
+function initActiveNavLinks() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link, .nav-link-active');
+    
+    // Intersection Observer options - trigger saat 50% section visible
+    const options = {
+        root: null,
+        rootMargin: '-50% 0px -50% 0px', // Center detection
+        threshold: 0
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.getAttribute('id');
+                
+                // Remove active from all links
+                navLinks.forEach(link => {
+                    link.classList.remove('nav-link-active');
+                    link.classList.add('nav-link');
+                    link.removeAttribute('aria-current');
+                });
+                
+                // Add active to current section link
+                const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.remove('nav-link');
+                    activeLink.classList.add('nav-link-active');
+                    activeLink.setAttribute('aria-current', 'page');
+                }
+            }
+        });
+    }, options);
+    
+    // Observe all sections
+    sections.forEach(section => observer.observe(section));
+}
+
+// ==================================
+// BACK TO TOP BUTTON
+// Auto show/hide button on scroll + smooth scroll to top
+// ==================================
+function initBackToTop() {
+    const backToTopBtn = document.getElementById('back-to-top');
+    
+    if (!backToTopBtn) return;
+    
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.remove('hidden');
+        } else {
+            backToTopBtn.classList.add('hidden');
+        }
+    });
+    
+    // Smooth scroll to top on click
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+
 
 // --- Dummy Data & Init ---
 

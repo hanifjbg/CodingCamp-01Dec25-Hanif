@@ -39,43 +39,43 @@
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 start-0 border-b border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md transition-colors duration-300">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div class="max-w-screen-xl flex flex-wrap items-center mx-auto p-4">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 flex items-center justify-center">
-                   <i class="fa-solid fa-film text-xl text-purple-600"></i>
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
+                   <i class="fa-solid fa-film text-xl text-white"></i>
                 </div>
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Dua Arah <span class="text-purple-600">Media</span></span>
             </a>
-            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <div class="flex ml-auto md:ml-0 md:order-2 space-x-2 rtl:space-x-reverse">
                 <!-- Dark Mode Toggle -->
-                <button id="theme-toggle" type="button" class="btn-toggle mr-2">
+                <button id="theme-toggle" type="button" class="btn-toggle hover-button">
                     <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                     <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
                 </button>
                 
-                <button data-collapse-toggle="navbar-sticky" type="button" class="btn-toggle inline-flex items-center w-10 h-10 justify-center md:hidden" aria-controls="navbar-sticky" aria-expanded="false">
+                <button data-collapse-toggle="navbar-sticky" type="button" class="btn-toggle hover-button inline-flex items-center w-10 h-10 justify-center md:hidden" aria-controls="navbar-sticky" aria-expanded="false">
                     <span class="sr-only">Buka menu utama</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
                     </svg>
                 </button>
             </div>
-            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 md:ml-auto md:mr-4" id="navbar-sticky">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-4 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                     <li>
-                        <a href="#hero" class="nav-link-active" aria-current="page">Beranda</a>
+                        <a href="#hero" class="nav-link-active hover-slide" aria-current="page">Beranda</a>
                     </li>
                     <li>
-                        <a href="#about" class="nav-link">Profil</a>
+                        <a href="#about" class="nav-link hover-slide">Profil</a>
                     </li>
                     <li>
-                        <a href="#branches" class="nav-link">Cabang</a>
+                        <a href="#branches" class="nav-link hover-slide">Cabang</a>
                     </li>
                     <li>
-                        <a href="#contact" class="nav-link">Hubungi Kami</a>
+                        <a href="#contact" class="nav-link hover-slide">Hubungi Kami</a>
                     </li>
                     <li>
-                        <a href="#testimonials" class="nav-link">Testimoni</a>
+                        <a href="#testimonials" class="nav-link hover-slide">Testimoni</a>
                     </li>
                 </ul>
             </div>
@@ -86,8 +86,8 @@
     <main>
         <!-- Hero Section -->
         <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden parallax-bg" style="background-image: url('assets/images/hero-banner-bg.webp');">
-            <!-- Overlay -->
-            <div class="absolute inset-0 bg-slate-900/70 dark:bg-slate-950/80 z-10"></div>
+            <!-- Animated Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-purple-900/40 to-blue-900/60 dark:from-slate-950/90 dark:via-purple-950/50 dark:to-blue-950/70 z-10 hero-gradient-animation"></div>
             
             <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
                 <h1 class="fade-in-up text-4xl md:text-6xl font-bold text-white mb-2 tracking-tight">
@@ -96,14 +96,20 @@
                 <h2 class="fade-in-up delay-100 text-2xl md:text-3xl font-semibold text-purple-400 mb-6">
                     Event Creative & Multimedia
                 </h2>
-                <p class="fade-in-up delay-200 text-lg md:text-xl text-gray-200 mb-8 font-light max-w-3xl mx-auto">
-                    Mewujudkan event impian Anda dengan kreativitas tanpa batas dan teknologi multimedia terkini
-                </p>
-                <div class="fade-in-up delay-300 flex flex-col md:flex-row justify-center gap-4">
-                    <a href="#about" class="btn-primary">
+                
+                <!-- Typing Text Container (Fixed Height) -->
+                <div class="fade-in-up delay-200 mb-8 min-h-[6rem] md:min-h-[8rem] flex items-center justify-center">
+                    <p class="text-2xl md:text-3xl text-gray-200 font-light max-w-4xl mx-auto">
+                        <span id="typing-text" class="border-r-2 border-purple-400 pr-1 leading-relaxed"></span>
+                    </p>
+                </div>
+                
+                <!-- Button Container (Independent) -->
+                <div class="fade-in-up delay-300 flex flex-col md:flex-row items-center justify-center gap-4 w-full">
+                    <a href="#about" class="btn-primary hover-lift w-auto">
                         Tentang Kami
                     </a>
-                    <a href="#contact" class="btn-secondary">
+                    <a href="#contact" class="btn-secondary hover-lift w-auto">
                         Hubungi Kami
                     </a>
                 </div>
@@ -115,6 +121,59 @@
                     <i class="fa-solid fa-chevron-down text-2xl"></i>
                 </a>
             </div>
+            
+            <!-- Typing Effect Script (Inline) -->
+            <script>
+                // Hero Typing Effect - rotates through 3 phrases
+                (function() {
+                    const phrases = [
+                        "Mewujudkan event impian Anda dengan kreativitas tanpa batas",
+                        "Produksi multimedia profesional untuk momen berkesan Anda",
+                        "Transformasi ide kreatif menjadi karya visual yang memukau"
+                    ];
+                    
+                    const typingElement = document.getElementById('typing-text');
+                    if (!typingElement) return;
+                    
+                    let phraseIndex = 0;
+                    let charIndex = 0;
+                    let isDeleting = false;
+                    let typingSpeed = 50;
+                    
+                    function type() {
+                        const currentPhrase = phrases[phraseIndex];
+                        
+                        if (isDeleting) {
+                            // Delete mode - remove characters
+                            typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                            charIndex--;
+                            typingSpeed = 30; // Faster delete
+                        } else {
+                            // Type mode - add characters
+                            typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                            charIndex++;
+                            typingSpeed = 50;
+                        }
+                        
+                        // Check if finished typing current phrase
+                        if (!isDeleting && charIndex === currentPhrase.length) {
+                            // Pause before deleting
+                            typingSpeed = 2000;
+                            isDeleting = true;
+                        } else if (isDeleting && charIndex === 0) {
+                            // Move to next phrase
+                            isDeleting = false;
+                            phraseIndex = (phraseIndex + 1) % phrases.length;
+                            typingSpeed = 500; // Pa use before next phrase
+                        }
+                        
+                        setTimeout(type, typingSpeed);
+                    }
+                    
+                    // Start typing effect after page load
+                    setTimeout(type, 1000);
+                })();
+            </script>
         </section>
         
         <!-- About Section -->
@@ -201,7 +260,7 @@
                         <div class="p-6 text-center">
                             <h3 class="text-xl font-bold mb-1 text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400">Jakarta</h3>
                             <p class="text-gray-500 dark:text-gray-400 text-sm">Kantor Pusat</p>
-                            <button class="btn-detail">Lihat Detail</button>
+                            <button class="btn-detail hover-button">Lihat Detail</button>
                         </div>
                     </div>
 
@@ -213,7 +272,7 @@
                         <div class="p-6 text-center">
                             <h3 class="text-xl font-bold mb-1 text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400">Bandung</h3>
                             <p class="text-gray-500 dark:text-gray-400 text-sm">Cabang Regional</p>
-                            <button class="mt-4 px-4 py-2 text-sm font-medium text-purple-700 bg-purple-50 rounded-lg hover:bg-purple-100 dark:bg-gray-700 dark:text-purple-400 dark:hover:bg-gray-600 transition-all duration-300">Lihat Detail</button>
+                            <button class="btn-detail hover-button">Lihat Detail</button>
                         </div>
                     </div>
 
@@ -225,7 +284,7 @@
                         <div class="p-6 text-center">
                             <h3 class="text-xl font-bold mb-1 text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400">Surabaya</h3>
                             <p class="text-gray-500 dark:text-gray-400 text-sm">Cabang Regional</p>
-                            <button class="mt-4 px-4 py-2 text-sm font-medium text-purple-700 bg-purple-50 rounded-lg hover:bg-purple-100 dark:bg-gray-700 dark:text-purple-400 dark:hover:bg-gray-600 transition-all duration-300">Lihat Detail</button>
+                            <button class="btn-detail hover-button">Lihat Detail</button>
                         </div>
                     </div>
                 </div>
@@ -242,7 +301,7 @@
                 <!-- Modal content -->
                 <div class="relative w-full max-w-2xl transform transition-all scale-in">
                     <!-- Tombol Tutup -->
-                    <button type="button" id="modal-close" class="absolute top-4 right-4 z-10 text-gray-400 dark:text-gray-300 bg-white/80 dark:bg-black/30 hover:bg-gray-100 dark:hover:bg-black/50 backdrop-blur-sm rounded-lg text-sm w-10 h-10 inline-flex justify-center items-center transition-all hover:scale-110">
+                    <button type="button" id="modal-close" class="absolute top-4 right-4 z-10 text-gray-400 dark:text-gray-300 bg-white/80 dark:bg-black/30 hover-button backdrop-blur-sm rounded-lg text-sm w-10 h-10 inline-flex justify-center items-center">
                         <i class="fa-solid fa-xmark text-xl"></i>
                     </button>
                     
@@ -376,7 +435,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="w-full mt-6 text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-300 font-bold rounded-xl text-lg px-5 py-3.5 text-center shadow-lg transition-all transform hover:-translate-y-1">
+                            <button type="submit" class="w-full mt-6 text-white bg-purple-600 hover-button focus:ring-4 focus:ring-purple-300 font-bold rounded-xl text-lg px-5 py-3.5 text-center shadow-lg">
                                 <i class="fa-solid fa-paper-plane mr-2"></i> Kirim Pesan
                             </button>
                         </form>
@@ -388,7 +447,7 @@
                              <h3 class="text-xl font-bold text-gray-900 dark:text-white flex items-center">
                                 <i class="fa-solid fa-inbox mr-3 text-purple-600"></i> Pesan Masuk
                             </h3>
-                        <button onclick="refreshMessages()" class="text-sm text-purple-600 hover:text-purple-700 font-medium flex items-center transition-all">
+                        <button onclick="refreshMessages()" class="text-sm text-purple-600 hover-button font-medium flex items-center">
                                 <i id="refresh-icon" class="fa-solid fa-rotate-right mr-1"></i> Refresh
                             </button>
                          </div>
@@ -411,7 +470,7 @@
         </section>
 
         <!-- Confirmation Modal -->
-        <div id="confirm-modal" tabindex="-1" aria-hidden="true" class="hidden">
+        <div id="confirm-modal" tabindex="-1" class="hidden">
             <!-- Backdrop -->
             <div class="modal-backdrop"></div>
             
@@ -480,11 +539,11 @@
                         
                         <!-- Action Buttons -->
                         <div class="flex gap-3">
-                            <button id="confirm-cancel-btn" type="button" class="btn-cancel">
+                            <button id="confirm-cancel-btn" type="button" class="btn-cancel hover-button">
                                 <i class="fa-solid fa-xmark"></i>
                                 <span>Batal</span>
                             </button>
-                            <button id="confirm-submit-btn" type="button" class="btn-gradient">
+                            <button id="confirm-submit-btn" type="button" class="btn-gradient hover-button">
                                 <i class="fa-solid fa-paper-plane"></i>
                                 <span>Kirim</span>
                             </button>
@@ -498,6 +557,11 @@
 
         <!-- Toast Container (Fixed) -->
         <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2"></div>
+        
+        <!-- Back to Top Button -->
+        <button id="back-to-top" class="fixed bottom-8 right-8 z-40 hidden w-12 h-12 bg-gradient-to-br from-purple-600 to-blue-600 text-white rounded-full shadow-lg hover-button transition-all duration-300" aria-label="Kembali ke atas">
+            <i class="fa-solid fa-arrow-up text-lg"></i>
+        </button>
         
         <!-- Testimonials Section -->
         <section id="testimonials" class="section-container-light">
@@ -522,18 +586,17 @@
                         <figcaption class="flex flex-col items-center justify-center">
                             <!-- Initials Avatar -->
                             <div id="testimonial-avatar" class="w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold text-white mb-4 shadow-lg"></div>
-                            <div class="text-center">
+                            <figcaption class="text-center">
                                 <div id="testimonial-name" class="font-bold text-lg text-gray-900 dark:text-white mb-1"></div>
                                 <div id="testimonial-role" class="text-sm text-gray-500 dark:text-gray-400"></div>
-                            </div>
                         </figcaption>
                     </figure>
 
                     <!-- Navigation Arrows -->
-                    <button id="testimonial-prev" class="btn-icon absolute left-0 top-1/2 -translate-y-1/2">
+                    <button id="testimonial-prev" class="btn-icon hover-button absolute left-0 top-1/2 ">
                         <i class="fa-solid fa-chevron-left text-lg"></i>
                     </button>
-                    <button id="testimonial-next" class="btn-icon absolute right-0 top-1/2 -translate-y-1/2">
+                    <button id="testimonial-next" class="btn-icon hover-button absolute right-0 top-1/2 ">
                         <i class="fa-solid fa-chevron-right text-lg"></i>
                     </button>
                 </div>
@@ -596,16 +659,16 @@
                         <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Perusahaan</h3>
                         <ul class="space-y-2 text-sm">
                             <li>
-                                <a href="#about" class="hover:text-purple-400 transition-colors">Tentang Kami</a>
+                                <a href="#about" class="hover-slide">Tentang Kami</a>
                             </li>
                             <li>
-                                <a href="#services" class="hover:text-purple-400 transition-colors">Layanan</a>
+                                <a href="#services" class="hover-slide">Layanan</a>
                             </li>
                             <li>
-                                <a href="#portfolio" class="hover:text-purple-400 transition-colors">Portfolio</a>
+                                <a href="#portfolio" class="hover-slide">Portfolio</a>
                             </li>
                             <li>
-                                <a href="#team" class="hover:text-purple-400 transition-colors">Tim Kami</a>
+                                <a href="#team" class="hover-slide">Tim Kami</a>
                             </li>
                         </ul>
                     </div>
@@ -615,16 +678,16 @@
                         <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Resources</h3>
                         <ul class="space-y-2 text-sm">
                             <li>
-                                <a href="#blog" class="hover:text-purple-400 transition-colors">Blog</a>
+                                <a href="#blog" class="hover-slide">Blog</a>
                             </li>
                             <li>
-                                <a href="#faq" class="hover:text-purple-400 transition-colors">FAQ</a>
+                                <a href="#faq" class="hover-slide">FAQ</a>
                             </li>
                             <li>
-                                <a href="#pricing" class="hover:text-purple-400 transition-colors">Harga</a>
+                                <a href="#pricing" class="hover-slide">Harga</a>
                             </li>
                             <li>
-                                <a href="#contact" class="hover:text-purple-400 transition-colors">Kontak</a>
+                                <a href="#contact" class="hover-slide">Kontak</a>
                             </li>
                         </ul>
                     </div>
@@ -634,16 +697,16 @@
                         <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Legal</h3>
                         <ul class="space-y-2 text-sm">
                             <li>
-                                <a href="#privacy" class="hover:text-purple-400 transition-colors">Privacy Policy</a>
+                                <a href="#privacy" class="hover-slide">Privacy Policy</a>
                             </li>
                             <li>
-                                <a href="#terms" class="hover:text-purple-400 transition-colors">Terms & Conditions</a>
+                                <a href="#terms" class="hover-slide">Terms & Conditions</a>
                             </li>
                             <li>
-                                <a href="#license" class="hover:text-purple-400 transition-colors">Licensing</a>
+                                <a href="#license" class="hover-slide">Licensing</a>
                             </li>
                             <li>
-                                <a href="#cookies" class="hover:text-purple-400 transition-colors">Cookie Policy</a>
+                                <a href="#cookies" class="hover-slide">Cookie Policy</a>
                             </li>
                         </ul>
                     </div>
@@ -659,20 +722,20 @@
 
                         <!-- Social Icons -->
                         <div class="flex items-center gap-4">
-                            <a href="https://facebook.com" target="_blank" rel="noopener" class="btn-social">
-                                <i class="fa-brands fa-facebook-f text-gray-300 hover:text-white"></i>
+                            <a href="https://facebook.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center hover-glow">
+                                <i class="fa-brands fa-facebook-f text-gray-300"></i>
                             </a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-purple-600 flex items-center justify-center transition-all hover:scale-110">
-                                <i class="fa-brands fa-instagram text-gray-300 hover:text-white"></i>
+                            <a href="https://instagram.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center hover-glow">
+                                <i class="fa-brands fa-instagram text-gray-300"></i>
                             </a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-purple-600 flex items-center justify-center transition-all hover:scale-110">
-                                <i class="fa-brands fa-x-twitter text-gray-300 hover:text-white"></i>
+                            <a href="https://twitter.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center hover-glow">
+                                <i class="fa-brands fa-twitter text-gray-300"></i>
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-purple-600 flex items-center justify-center transition-all hover:scale-110">
-                                <i class="fa-brands fa-linkedin-in text-gray-300 hover:text-white"></i>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center hover-glow">
+                                <i class="fa-brands fa-linkedin-in text-gray-300"></i>
                             </a>
-                            <a href="https://youtube.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-purple-600 flex items-center justify-center transition-all hover:scale-110">
-                                <i class="fa-brands fa-youtube text-gray-300 hover:text-white"></i>
+                            <a href="https://youtube.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center hover-glow">
+                                <i class="fa-brands fa-youtube text-gray-300"></i>
                             </a>
                         </div>
                     </div>

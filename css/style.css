@@ -3,6 +3,139 @@
    Animasi dan utility classes yang dipake di seluruh aplikasi
    ================================ */
 
+/* ===================================
+   UNIFIED HOVER EFFECTS
+   Consistent hover animations untuk semua interactive elements
+   =================================== */
+
+/* Hover Lift - untuk cards dan containers */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dark .hover-lift:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover Scale - untuk buttons dan icons */
+.hover-scale {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* Hover Glow - untuk emphasis elements */
+.hover-glow {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+    transform: translateY(-2px);
+}
+
+.dark .hover-glow:hover {
+    box-shadow: 0 0 25px rgba(147, 51, 234, 0.6);
+}
+
+/* Hover Slide - untuk navigation items */
+.hover-slide {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.hover-slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #9333EA, #2563EB);
+    transition: width 0.3s ease;
+}
+
+.hover-slide:hover::after {
+    width: 100%;
+}
+
+/* Hover Brighten - untuk images */
+.hover-brighten {
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.hover-brighten:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+}
+
+/* Hover Rotate - untuk icons/logos */
+.hover-rotate {
+    transition: transform 0.5s ease;
+}
+
+.hover-rotate:hover {
+    transform: rotate(360deg);
+}
+
+/* Hover Pulse - untuk attention-grabbing elements */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(147, 51, 234, 0);
+    }
+}
+
+.hover-pulse:hover {
+    animation: pulse-glow 1.5s infinite;
+}
+
+/* Hover Gradient Shift - untuk gradient buttons */
+.hover-gradient-shift {
+    background-size: 200% 200%;
+    transition: background-position 0.5s ease, transform 0.3s ease;
+}
+
+.hover-gradient-shift:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+}
+
+/* Hover Button - universal button effect (glow + scale) */
+.hover-button {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+}
+
+.dark .hover-button:hover {
+    box-shadow: 0 0 25px rgba(147, 51, 234, 0.6);
+}
+
+/* Hover Scale Only - untuk positioned elements (arrows, dll)
+   Pure scale tanpa glow, prevents transform conflicts */
+.hover-scale-only {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale-only:hover {
+    transform: scale(1.1);
+}
+
+
+
 /* Shake Animation - buat error feedback pas form validation gagal */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
@@ -13,6 +146,29 @@
 .shake {
   animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
 }
+
+/* Hero Gradient Animation - animated gradient background shift */
+@keyframes heroGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-gradient-animation {
+    background-size: 200% 200%;
+    animation: heroGradientShift 15s ease infinite;
+}
+
+/* Slow Pulse Animation - subtle pulse for CTA button */
+@keyframes pulseSlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.02); }
+}
+
+.animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
+}
+
 
 /* Glassmorphism Effect - efek kaca blur transparan */
 .glass {
@@ -299,6 +455,52 @@
     outline-offset: 2px;
 }
 
+/* Gender Button Card - auto width responsive + hover glow */
+.btn-gender-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.25rem;  /* Flexible padding */
+    min-width: auto;  /* Auto width based on content */
+    width: auto;  /* Not fixed width */
+    border: 2px solid rgb(209, 213, 219);
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgb(75, 85, 99);
+    background-color: white;
+    transition: all 0.3s ease;
+    white-space: nowrap;  /* Keep text in one line */
+}
+
+.dark .btn-gender-card {
+    border-color: rgb(75, 85, 99);
+    background-color: rgb(30, 41, 59);
+    color: rgb(156, 163, 175);
+}
+
+/* Hover Effects - scale + subtle glow */
+.btn-gender-card:hover {
+    border-color: rgb(147, 51, 234);
+    color: rgb(126, 34, 206);
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(147, 51, 234, 0.2);
+}
+
+.dark .btn-gender-card:hover {
+    border-color: rgb(192, 132, 252);
+    color: rgb(192, 132, 252);
+    box-shadow: 0 0 12px rgba(192, 132, 252, 0.3);
+}
+
+/* Checked State - full purple */
+input[type="radio"]:checked + .btn-gender-card,
+.peer:checked ~ .btn-gender-card {
+    border-color: rgb(147, 51, 234);
+    background-color: rgb(147, 51, 234);
+    color: white;
+    box-shadow: 0 0 15px rgba(147, 51, 234, 0.4);
+}
 /* Secondary Button - tombol sekunder outline purple */
 .btn-secondary {
     display: inline-flex;
@@ -686,13 +888,24 @@ input[type="radio"]:checked + .btn-gender-card,
     }
 }
 
-/* Active Navigation Link */
+/* Active Navigation Link - permanent underline untuk active section */
 .nav-link-active {
     display: block;
     padding: 0.5rem 0.75rem;
     color: white;
     background-color: rgb(126, 34, 206); /* purple-700 */
     border-radius: 0.375rem;
+    position: relative;
+}
+
+.nav-link-active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #9333EA, #2563EB);
 }
 
 @media (min-width: 768px) {
@@ -701,27 +914,32 @@ input[type="radio"]:checked + .btn-gender-card,
         background-color: transparent;
         color: rgb(126, 34, 206); 
     }
+    
+    .nav-link-active::after {
+        width: 100%; /* Permanent underline */
+    }
 }
 
 .dark .nav-link-active {
-    color: rgb(192, 132, 252); 
+    color: rgb(192, 132, 252); /* purple-400 */
 }
 
-/* Toggle Button (theme/menu) */
+/* Toggle Button (theme/menu) - clean button, no ugly focus box */
 .btn-toggle {
     padding: 0.625rem;
     color: rgb(107, 114, 128); 
     border-radius: 0.5rem;
     transition: all 0.3s ease;
+    background-color: transparent;
 }
 
 .btn-toggle:hover {
-    background-color: rgb(243, 244, 246); 
+    color: rgb(17, 24, 39);
+    background-color: rgb(243, 244, 246);
 }
 
 .btn-toggle:focus {
-    outline: 2px solid rgba(209, 213, 219, 0.5);
-    outline-offset: 2px;
+    outline: none; /* Remove ugly focus box */
 }
 
 .dark .btn-toggle {
@@ -729,11 +947,12 @@ input[type="radio"]:checked + .btn-gender-card,
 }
 
 .dark .btn-toggle:hover {
-    background-color: rgb(55, 65, 81); 
+    color: white;
+    background-color: rgb(51, 65, 85);
 }
 
 .dark .btn-toggle:focus {
-    outline-color: rgba(75, 85, 99, 0.7);
+    outline: none; /* Remove ugly focus box in dark mode too */
 }
 
 /* Fade In Up Animation - auto muncul pas render, ga perlu trigger scroll */
@@ -901,17 +1120,24 @@ input[type="radio"]:checked + .btn-gender-card,
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    background: rgb(241, 245, 249); /* gray-100 */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(139, 92, 246, 0.5);
-    border-radius: 10px;
+    background: rgb(203, 213, 225); /* gray-300 */
+    border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(139, 92, 246, 0.7);
+    background: rgb(147, 51, 234); /* purple-600 */
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgb(30, 41, 59); /* slate-800 */
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgb(51, 65, 85); /* slate-700 */
 }
 
 /* Font Awesome Spin Animation */
@@ -926,4 +1152,82 @@ input[type="radio"]:checked + .btn-gender-card,
     100% {
         transform: rotate(360deg);
     }
+}
+
+/* ===================================
+   SECTION BACKGROUND PATTERNS
+   Subtle patterns untuk visual interest
+   =================================== */
+
+/* Radial Gradient Pattern - soft purple/blue accents */
+.section-bg-radial {
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(147, 51, 234, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 50%);
+}
+
+.dark .section-bg-radial {
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(147, 51, 234, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%);
+}
+
+/* Gradient Background - smooth color transition */
+.section-bg-gradient {
+    background: linear-gradient(
+        135deg,
+        rgba(249, 250, 251, 1) 0%,
+        rgba(243, 244, 246, 1) 100%
+    );
+}
+
+.dark .section-bg-gradient {
+    background: linear-gradient(
+        135deg,
+        rgba(30, 41, 59, 1) 0%,
+        rgba(15, 23, 42, 1) 100%
+    );
+}
+
+/* Mesh Pattern - subtle grid texture */
+.section-bg-mesh {
+    background-color: white;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239333ea' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.dark .section-bg-mesh {
+    background-color: rgb(30, 41, 59);
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239333ea' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Dots Pattern - modern dotted background */
+.section-bg-dots {
+    background-color: white;
+    background-image: 
+        radial-gradient(circle, rgba(147, 51, 234, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.dark .section-bg-dots {
+    background-color: rgb(30, 41, 59);
+    background-image: 
+        radial-gradient(circle, rgba(147, 51, 234, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Wave Pattern - organic flowing lines */
+.section-bg-wave {
+    background-color: white;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q 25 0, 50 10 T 100 10' stroke='%239333ea' stroke-opacity='0.03' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+    background-size: 100px 20px;
+}
+
+.dark .section-bg-wave {
+    background-color: rgb(30, 41, 59);
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q 25 0, 50 10 T 100 10' stroke='%239333ea' stroke-opacity='0.1' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+    background-size: 100px 20px;
 }
