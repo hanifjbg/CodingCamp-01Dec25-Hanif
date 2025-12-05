@@ -1,0 +1,117 @@
+# ===================================
+# Dua Arah Media - .gitignore
+# ===================================
+
+# Post-Production Documents (CONFIDENTIAL - Company Secret)
+post-pro/
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Node Modules (if using build tools in future)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Environment Variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Build Output (if using bundlers)
+dist/
+build/
+out/
+.next/
+.cache/
+
+# Temporary Files
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+*.old
+
+# Legacy/Archive Files
+legacy/
+archive/
+backup/
+old/
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+*.test.js
+*.spec.js
+
+# Documentation Drafts (optional)
+drafts/
+notes/
+scratchpad/
+
+# MacOS
+.AppleDouble
+.LSOverride
+
+# Windows
+$RECYCLE.BIN/
+
+# Linux
+.directory
+.Trash-*
+
+# Logs
+logs/
+*.log
+
+# Private/Secret Files
+private/
+secret/
+confidential/
+internal/
+
+# Database Files (if added later)
+*.sqlite
+*.sqlite3
+*.db
+
+# Compressed Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Media Processing Temp
+*.psd
+*.ai
+*.sketch
+*.fig
+
+# System Files
+.fseventsd
+.Spotlight-V100
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
